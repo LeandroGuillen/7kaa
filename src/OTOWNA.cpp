@@ -241,7 +241,8 @@ void TownArray::process()
 
 	//------ create new independent town -----//
 
-	if( info.game_date%30==0 && sys.frame_count%FRAMES_PER_DAY==0 )
+	// borra if para que aparezcan instantaneamente
+	// if( info.game_date%30==0 && sys.frame_count%FRAMES_PER_DAY==0 )
 		think_new_independent_town();
 }
 //----------- End of function TownArray::process ---------//
@@ -278,11 +279,13 @@ void TownArray::think_new_independent_town()
 			independentTownCount++;
 	}
 
-	if( independentTownCount >= 10 )		// only when the no. of independent town is less than 10
+	// borra esto?
+	if( independentTownCount >= 50 )		// only when the no. of independent town is less than 10
 		return;
 
 	//--- if the total population of all nations combined > 1000, then no new independent town will emerge ---//
 
+	// borra esto?
 	if( allTotalPop > config_adv.town_ai_emerge_town_pop_limit )
 		return;
 
@@ -345,7 +348,9 @@ void TownArray::think_new_independent_town()
 
 		//---- next race to be added to the independent town ----//
 
-		raceId = random_race();
+		raceId = 0;
+		// raceId = random_race();
+
 
 		for( i=0 ; i<MAX_RACE ; i++ )
 		{
@@ -411,7 +416,8 @@ int TownArray::independent_town_resistance()
 //
 int TownArray::think_town_loc(int maxTries, int& xLoc, int& yLoc)
 {
-	#define MIN_INTER_TOWN_DISTANCE  16
+	// more towns can be closer
+	#define MIN_INTER_TOWN_DISTANCE  3
 	#define BUILD_TOWN_LOC_WIDTH     16
 	#define BUILD_TOWN_LOC_HEIGHT    16
 

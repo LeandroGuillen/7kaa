@@ -261,7 +261,7 @@ void World::generate_map()
 	}
 
 
-	gen_dirt(40,30,60);
+	//gen_dirt(40,30,60);
 	curGenMapSteps++;			// 10
 	if( dispProgress )
 	{
@@ -270,7 +270,7 @@ void World::generate_map()
 		vga_front.unlock_buf();
 	}
 
-	gen_rocks(5,10,30);
+	//gen_rocks(5,10,30);
 	curGenMapSteps++;		// 11
 	if( dispProgress )
 	{
@@ -288,7 +288,7 @@ void World::generate_map()
 		vga_front.unlock_buf();
 	}
 
-	plant_init();
+	//plant_init();
 	curGenMapSteps++;		// 13
 	if( dispProgress )
 	{

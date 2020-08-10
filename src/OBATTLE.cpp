@@ -179,7 +179,8 @@ void Battle::run(NewNationPara *mpGame, int mpPlayerCount)
 	//---- reset cheats ----//
 
 	config.fast_build = 0;
-	config.king_undie_flag = sys.testing_session && !mpGame;
+	config.king_undie_flag = 1;
+	// config.king_undie_flag = sys.testing_session && !mpGame;
 	config.blacken_map = 1;
 	config.disable_ai_flag = 0;
 
@@ -801,10 +802,11 @@ int Battle::create_town(int nationRecno, int raceId, int& xLoc, int& yLoc)
 	{
 		int mixedRaceCount;
 
-		if( nationRecno )
+		// towns are mostly 1 race
+		// if( nationRecno )
 			mixedRaceCount = 1;
-		else
-			mixedRaceCount= misc.random(3)+1;		// 1 to 3 mixed races
+		// else
+		// 	mixedRaceCount= misc.random(3)+1;		// 1 to 3 mixed races
 
 		int curPop, totalPop=0, townResistance;
 
